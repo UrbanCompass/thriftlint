@@ -23,7 +23,7 @@ func CheckStructFieldOrder() thriftlint.Check {
 			a := fields[i]
 			b := fields[i+1]
 			if a.Pos.Line > b.Pos.Line {
-				messages.Warning(fields[i], "field %d and %d are out of order", a.ID, b.ID)
+				messages.Warning(fields[i], "field %d and %d of %s are out of order", a.ID, b.ID, s.Name)
 			}
 		}
 		return

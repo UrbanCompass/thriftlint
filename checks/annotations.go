@@ -10,29 +10,6 @@ import (
 	"github.com/UrbanCompass/thriftlint"
 )
 
-// Accepts urls in the form /(<component>|:<var>)+[/]
-const urlRegex = "(?:/(?:(?:[a-z0-9_]+)|(:[a-zA-Z_][a-zA-Z0-9_]+)))+/?"
-
-// var (
-// 	annotationRegistry = map[reflect.Type]map[string]string{
-// 		thriftlint.ServiceType: {
-// 			"api.url":   urlRegex,
-// 			"api.proxy": urlRegex,
-// 			"api.test":  "^$",
-// 		},
-// 		thriftlint.MethodType: {
-// 			"api.url":    urlRegex,
-// 			"api.method": "GET|POST|DELETE|PUT",
-// 			"api.roles":  ".*",
-// 		},
-// 		// TODO(cameron): Generate the pattern here from api.InjectorMap once it's submitted.
-// 		thriftlint.FieldType: {
-// 			"api.inject": "^$",
-// 			"api.path":   "^$",
-// 		},
-// 	}
-// )
-
 type AnnotationPattern struct {
 	//AST nodes this annotation pattern should apply to.
 	Nodes      []reflect.Type
@@ -110,7 +87,7 @@ func (c *annotationsCheck) checker(self interface{}) (messages thriftlint.Messag
 	// Validate `nolint` annotation contains only valid checks to be disabled.
 	for _, annotation := range annotations {
 		if annotation.Name == "nolint" && annotation.Value != "" {
-			lints := strings.Split(annotation.Value, ",")
+			lints := strings.Fields(annotation.Value)
 			for _, l := range lints {
 				if !c.checks.Has(l) {
 					messages.Warning(annotation, "%q is not a known linter check", l)
