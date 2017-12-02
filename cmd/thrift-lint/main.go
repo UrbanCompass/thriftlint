@@ -17,7 +17,9 @@ var (
 	disableFlag     = kingpin.Flag("disable", "Linters to disable.").PlaceHolder("LINTER").Strings()
 	listFlag        = kingpin.Flag("list", "List linter checks.").Bool()
 	errorFlag       = kingpin.Flag("errors", "Only show errors.").Bool()
-	sourcesArgs     = kingpin.Arg("sources", "Thrift sources to lint.").Required().ExistingFiles()
+	standard        = kingpin.Flag("standard", "The name or path of the coding standard to use").Default("default").String()
+
+	sourcesArgs = kingpin.Arg("sources", "Thrift sources to lint.").Required().ExistingFiles()
 )
 
 func main() {
@@ -25,17 +27,13 @@ func main() {
 
 For details, please refer to https://github.com/UrbanCompass/thriftlint
 `
+
 	kingpin.Parse()
-	checkers := thriftlint.Checks{
-		checks.CheckIndentation(),
-		checks.CheckNames(nil, nil),
-		checks.CheckOptional(),
-		checks.CheckDefaultValues(),
-		checks.CheckEnumSequence(),
-		checks.CheckMapKeys(),
-		checks.CheckTypeReferences(),
-		checks.CheckStructFieldOrder(),
-	}
+
+	fmt.Printf("using standard: %s\n", *standard)
+	checkers, err := checks.AllCheckers.ApplyStandard(*standard)
+	kingpin.FatalIfError(err, "")
+
 	checkers = append(checkers, checks.CheckAnnotations(nil, checkers))
 
 	if *listFlag {
