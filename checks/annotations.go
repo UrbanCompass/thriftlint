@@ -54,6 +54,10 @@ func (c *annotationsCheck) Checker() interface{} {
 	return c.checker
 }
 
+func (c *annotationsCheck) Config(interface{}) error {
+	return nil
+}
+
 // annotationsCheck verifies that annotations match basic regular expressions.
 //
 // It does not do any semantic checking.
