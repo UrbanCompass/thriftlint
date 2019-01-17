@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/UrbanCompass/thriftlint"
+	"github.com/wy90021/thriftlint"
 )
 
 type NamingStyle struct {

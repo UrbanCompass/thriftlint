@@ -1,12 +1,12 @@
-# An extensible linter for Thrift [![](https://godoc.org/github.com/UrbanCompass/thriftlint?status.svg)](http://godoc.org/github.com/UrbanCompass/thriftlint)
+# An extensible linter for Thrift [![](https://godoc.org/github.com/wy90021/thriftlint?status.svg)](http://godoc.org/github.com/wy90021/thriftlint)
 
 This is an extensible linter for [Thrift](https://thrift.apache.org/). It
 includes a set of common lint checks, but allows for both customisation of those
 checks, and creation of new ones by implementing the
-[Check](https://godoc.org/github.com/UrbanCompass/thriftlint#Check) interface.
+[Check](https://godoc.org/github.com/wy90021/thriftlint#Check) interface.
 
 For an example of how to build your own linter utility, please refer to the
-[thrift-lint source](https://github.com/UrbanCompass/thriftlint/tree/master/cmd/thrift-lint).
+[thrift-lint source](https://github.com/wy90021/thriftlint/tree/master/cmd/thrift-lint).
 
 ## Example checker
 
@@ -36,13 +36,13 @@ func CheckStructFieldOrder() thriftlint.Check {
 A binary is included that can be used to perform basic linting with the builtin checks:
 
 ```
-$ go get github.com/UrbanCompass/thriftlint/cmd/thrift-lint
+$ go get github.com/wy90021/thriftlint/cmd/thrift-lint
 $ thrift-lint --help
 usage: thrift-lint [<flags>] <sources>...
 
 A linter for Thrift.
 
-For details, please refer to https://github.com/UrbanCompass/thriftlint
+For details, please refer to https://github.com/wy90021/thriftlint
 
 Flags:
       --help                Show context-sensitive help (also try --help-long

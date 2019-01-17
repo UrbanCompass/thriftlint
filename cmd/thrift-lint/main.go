@@ -7,8 +7,8 @@ import (
 
 	"gopkg.in/alecthomas/kingpin.v3-unstable"
 
-	"github.com/UrbanCompass/thriftlint"
-	"github.com/UrbanCompass/thriftlint/checks"
+	"github.com/wy90021/thriftlint"
+	"github.com/wy90021/thriftlint/checks"
 )
 
 var (
@@ -23,7 +23,7 @@ var (
 func main() {
 	kingpin.CommandLine.Help = `A linter for Thrift.
 
-For details, please refer to https://github.com/UrbanCompass/thriftlint
+For details, please refer to https://github.com/wy90021/thriftlint
 `
 	kingpin.Parse()
 	checkers := thriftlint.Checks{

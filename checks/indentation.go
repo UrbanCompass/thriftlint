@@ -3,7 +3,7 @@ package checks
 import (
 	"reflect"
 
-	"github.com/UrbanCompass/thriftlint"
+	"github.com/wy90021/thriftlint"
 )
 
 var (

@@ -3,7 +3,7 @@ package checks
 import (
 	"github.com/alecthomas/go-thrift/parser"
 
-	"github.com/UrbanCompass/thriftlint"
+	"github.com/wy90021/thriftlint"
 )
 
 // CheckTypeReferences checks that types referenced in Thrift files are actually imported

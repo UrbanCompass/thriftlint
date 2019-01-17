@@ -5,7 +5,7 @@ import (
 
 	"github.com/alecthomas/go-thrift/parser"
 
-	"github.com/UrbanCompass/thriftlint"
+	"github.com/wy90021/thriftlint"
 )
 
 type sortedFields []*parser.Field

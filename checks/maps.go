@@ -1,7 +1,7 @@
 package checks
 
 import (
-	"github.com/UrbanCompass/thriftlint"
+	"github.com/wy90021/thriftlint"
 	"github.com/alecthomas/go-thrift/parser"
 )
 
